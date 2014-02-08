@@ -292,7 +292,7 @@ class Report(object):
 #            page.add('<p><img src="'+imgPath+'"></p>\n')            
             
         page.section("Detailed Agent Statistics")
-        items = results[AGENT_STATS].items()
+        items = list(results[AGENT_STATS].items())
         items.sort()
         lastName = ""
         for name, stats in items:

@@ -51,9 +51,9 @@ def median(values):
     if n == 0: return 0.0
     values.sort()
     if n % 2 == 0:
-        return (values[n/2-1] + values[n/2]) / 2.0
+        return (values[n//2-1] + values[n//2]) / 2.0
     else:
-        return float(values[n/2])
+        return float(values[n//2])
     
     
 ###############################################################################
