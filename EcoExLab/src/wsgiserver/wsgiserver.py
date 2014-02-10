@@ -45,8 +45,8 @@ class AppProxy(object):
     
     def __init__(self, application, directory = '.',
                  include = ['*'], exclude = ['*.py', '*~', '.*', '/.*']):
-        """Crates AppProxy object. All files in 'directory' that math a wild
-        card in 'include' and do not match any wildcard in exclude will
+        """Crates AppProxy object. All files in 'directory' that match a wild
+        card in 'include' and do not match any wild card in exclude will
         be served upon request. All queries or non GET requests (e.g. POST
         requests) will be delegated to 'application'. Files added after
         the AppProxy object was created will always be ignored."""
@@ -74,11 +74,12 @@ class AppProxy(object):
                 if path in self.allowedFiles:
                     try:
                         f = open(os.path.join(self.directory, path))
-                        page = f.read()
+                        # page = bytes(f.read(), "utf-8") # <-- works only with python 3
+                        page = f.read().encode("utf-8")
                         headers = [('Content-Type','text/html; charset=utf-8'), 
                                    ('Content-Length', str(len(page)))]
                         start_response('200 OK', headers)
-                        return[page]
+                        return [page]
                                                   
                     except IOError:
                         return self.error_message(start_response, '404 Not Found',

@@ -182,8 +182,8 @@ assert set(AgentInfo().variables()).issubset(set(AgentInfo().__dict__.keys())),\
 
 
 class PublicInfo(object):
-    """Contains a snapshot of the publically available anonymised information 
-    about a single agent.
+    """Contains a snapshot of the publicly available anonymized information 
+    about a single agent. 
     
         allegiance      - string: the institution to which the agent belongs
         contribution    - int: amount of tokens that an agent contributed for

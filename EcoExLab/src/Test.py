@@ -18,6 +18,7 @@ Created on 07.04.2011
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 """
 
+import sys
 from random import randint, random
 import webbrowser
 
@@ -240,8 +241,9 @@ def reportTest(fileName):
 
 if __name__ == "__main__":
     print("Test simulation...")
+    print(sys.version)
     Simulation("../test/Test.json")
     print("Simulation finished. Now preparing report...")
-    readChroniclesTest("../test/Test.json")
+    #readChroniclesTest("../test/Test.json")
     reportTest("../test/Test.json")
     print("finished.")
